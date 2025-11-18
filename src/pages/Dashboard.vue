@@ -39,8 +39,8 @@ import { useLinkPageStore } from 'src/stores/linkPageStore'
 const store = useLinkPageStore()
 const pages = store.pages
 
-onMounted(() => {
-  store.loadPages()
+onMounted(async () => {
+  await store.loadPages()
 })
 
 function publicUrl(id) {

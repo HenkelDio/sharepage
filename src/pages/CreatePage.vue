@@ -97,7 +97,7 @@ async function save() {
     return;
   }
 
-  $q.loading.show();D
+  $q.loading.hide();
 
   $q.notify({ type: 'positive', message: 'Página criada com sucesso!' })
 
