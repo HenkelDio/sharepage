@@ -89,12 +89,15 @@ async function save() {
     return
   }
 
+  $q.loading.show();
   try {
     await store.createPage(title.value, links.value)
   } catch (e) {
     $q.notify({ type: 'negative', message: 'Erro ao criar página' })
     return;
   }
+
+  $q.loading.show();D
 
   $q.notify({ type: 'positive', message: 'Página criada com sucesso!' })
 

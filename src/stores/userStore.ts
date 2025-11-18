@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { api } from 'boot/axios'
+import { api, apiPublic } from 'boot/axios'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -9,7 +9,7 @@ export const useUserStore = defineStore('user', {
 
   actions: {
     async login(email: string, password: string) {
-      const res = await api.post('/auth/login', { email, password })
+      const res = await apiPublic.post('/auth/login', { email, password })
       this.user = res.data.user
       this.token = res.data.token
       localStorage.setItem("token", res.data.token)

@@ -36,14 +36,15 @@ const email = ref('')
 const password = ref('')
 
 async function doLogin() {
-  
+  $q.loading.show();
   try {
     await store.login(email.value, password.value)
   } catch(e) {
     $q.notify({ type: 'negative', message: 'Não foi possível fazer login' })
+    $q.loading.hide();
     return
   }
-
+  $q.loading.hide();
   router.push('/dashboard')
 }
 </script>

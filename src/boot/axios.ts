@@ -5,6 +5,10 @@ const api = axios.create({
   baseURL: 'https://sharepageapi.onrender.com'
 })
 
+const apiPublic = axios.create({
+  baseURL: 'https://sharepageapi.onrender.com'
+})
+
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
@@ -18,6 +22,7 @@ api.interceptors.request.use((config) => {
 export default boot(({ app }) => {
   app.config.globalProperties.$axios = axios
   app.config.globalProperties.$api = api
+  app.config.globalProperties.$apiPublic = apiPublic
 })
 
-export { api }
+export { api, apiPublic }
